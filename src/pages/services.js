@@ -1,11 +1,11 @@
 import React from 'react';
 import Layout from '../components/layout';
 
-const  About = () => {
+const  Services = () => {
     return (
         <Layout>
             <div>
-                <h1>O mnie</h1>
+                <h1>Usługi</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
                     dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex 
                     ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
@@ -16,7 +16,7 @@ const  About = () => {
     )
 }
 
-export default About;
+export default Services;
 
 
 
