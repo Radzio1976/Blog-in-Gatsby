@@ -1,16 +1,31 @@
 import React from 'react';
+import {Link, graphql} from 'gatsby';
 import Layout from '../components/layout';
 
-const  Blog = () => {
+const  Blog = ({data}) => {
+    console.log(data)
     return (
         <Layout>
             <div>
-                <h1>Blog</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex 
-                    ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
-                    dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-                    sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                {
+                    data.allMarkdownRemark.edges.map((post) => {
+                        return(
+                            <div key={post.node.id} style={{
+                                margin: '30px 0px',
+                                borderBottom: '1px solid grey'
+                            }}>
+                                <h3>{post.node.frontmatter.title}</h3>
+                                <small>Napisany przez {post.node.frontmatter.author} dnia {post.node.frontmatter.date}</small>
+                                <div style={{
+                                    display: 'flex',
+                                    justifyContent: 'flex-end'
+                                }}>
+                                    <Link to={post.node.frontmatter.path}>Więcej</Link>
+                                </div>
+                            </div>
+                        )
+                    })
+                }
             </div>
         </Layout>
     )
@@ -18,5 +33,21 @@ const  Blog = () => {
 
 export default Blog;
 
+export const query = graphql`
+    query {
+        allMarkdownRemark {
+        edges {
+            node {
+            id
+            frontmatter {
+                author
+                date
+                path
+                title
+            }
+            }
+        }
+    }
+}`
 
 
