@@ -12,6 +12,7 @@ import Helmet from 'react-helmet'
 
 import Header from "./header"
 import "./layout.css"
+import Menu from './menu'
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -47,6 +48,7 @@ const Layout = ({ children }) => {
           padding: `0 1.0875rem 1.45rem`,
         }}
       >
+      <Menu />
         <main>{children}</main>
         <footer
           style={{
