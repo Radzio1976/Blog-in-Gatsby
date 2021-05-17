@@ -11,7 +11,6 @@ const  Blog = ({data}) => {
                     data.allMarkdownRemark.edges.map((post) => {
                         return(
                             <div key={post.node.id} style={{
-                                margin: '30px 0px',
                                 borderBottom: '1px solid grey'
                             }}>
                                 <h3>{post.node.frontmatter.title}</h3>

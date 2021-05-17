@@ -5,7 +5,8 @@ const  Menu = () => {
     return (
         <div style={{
             display: 'flex',
-            justifyContent: 'space-evenly'
+            justifyContent: 'space-evenly',
+            marginBottom: '30px'
         }}>
             <Link to="/">Home</Link>
             <Link to="/about">O mnie</Link>
